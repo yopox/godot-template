@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://n4gxa1pcscwc"]
+
+[ext_resource type="Script" path="res://scenes/title/logo.gd" id="1_rq0oc"]
+[ext_resource type="Script" path="res://scenes/title/choice.gd" id="2_g18ai"]
+[ext_resource type="Script" path="res://scenes/title/Arrow.gd" id="3_an37i"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0.690196, 0.686275, 0.654902, 1)
+offset_left = -109.0
+offset_top = -60.0
+offset_right = -2.0
+offset_bottom = -42.0
+scale = Vector2(2, 2)
+text = "title screen"
+uppercase = true
+script = ExtResource("1_rq0oc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Choice" type="Node" parent="." node_paths=PackedStringArray("container")]
+script = ExtResource("2_g18ai")
+container = NodePath("../VBoxContainer")
+
+[node name="Arrow" type="Label" parent="." node_paths=PackedStringArray("choice")]
+modulate = Color(0.690196, 0.686275, 0.654902, 1)
+offset_left = -50.0
+offset_top = 30.0
+offset_right = -42.0
+offset_bottom = 48.0
+text = "o"
+script = ExtResource("3_an37i")
+choice = NodePath("../Choice")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = 30.0
+offset_right = 35.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+modulate = Color(0.690196, 0.686275, 0.654902, 1)
+layout_mode = 2
+text = "new game"
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+modulate = Color(0.690196, 0.686275, 0.654902, 1)
+layout_mode = 2
+text = "tutorial"
